@@ -1,0 +1,81 @@
+<template>
+  <lightning-card
+    title="Pipeline Summary"
+    icon-name="standard:opportunity">
+
+    <div class="slds-p-around_medium">
+
+      <!-- Metric cards row -->
+      <div class="slds-grid slds-gutters
+                    slds-m-bottom_medium">
+
+        <div class="slds-col slds-size_1-of-3">
+          <div class="metric-card">
+            <p class="metric-label">
+              Open pipeline</p>
+            <p class="metric-value">
+              {formattedOpenTotal}</p>
+            <p class="metric-sub">
+              {openCount} deals</p>
+          </div>
+        </div>
+
+        <div class="slds-col slds-size_1-of-3">
+          <div class="metric-card">
+            <p class="metric-label">
+              Closed won (QTD)</p>
+            <p class="metric-value
+                        metric-value--green">
+              {formattedWonQTD}</p>
+            <p class="metric-sub">
+              this quarter</p>
+          </div>
+        </div>
+
+        <div class="slds-col slds-size_1-of-3">
+          <div class="metric-card">
+            <p class="metric-label">
+              Win rate</p>
+            <p class="metric-value">
+              {winRate}%</p>
+            <p class="metric-sub">
+              all time</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Stage breakdown bars -->
+      <template if:true={pipeline.data}>
+        <template
+          for:each={stagesWithPct}
+          for:item="stage">
+          <div key={stage.stageName}
+               class="stage-row">
+            <div class="stage-label">
+              {stage.stageName}</div>
+            <div class="stage-bar-wrap">
+              <div
+                class="stage-bar"
+                data-pct={stage.pct}>
+              </div>
+            </div>
+            <div class="stage-meta">
+              <span>{stage.dealCount}
+                deals</span>
+              <span class="stage-amount">
+                {stage.formattedAmount}
+              </span>
+            </div>
+          </div>
+        </template>
+      </template>
+
+      <!-- Loading state -->
+      <template if:true={pipeline.error}>
+        <p>Error loading pipeline data</p>
+      </template>
+
+    </div>
+  </lightning-card>
+</template>

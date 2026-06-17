@@ -1,0 +1,126 @@
+<template>
+  <lightning-card title="New Lead" icon-name="standard:lead">
+    <div class="slds-p-around_medium">
+
+      <!-- Score badge -->
+      <div class="slds-grid slds-gutters slds-m-bottom_small">
+        <div class="slds-col">
+          <p class="slds-text-heading_small">
+            Lead Score:
+            <lightning-badge
+              label={scoreLabel}
+              class={scoreBadgeClass}>
+            </lightning-badge>
+          </p>
+        </div>
+      </div>
+
+      <!-- Row 1 -->
+      <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-2">
+          <lightning-input label="First Name" value={firstName}
+            onchange={handleChange} data-field="firstName">
+          </lightning-input>
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+          <lightning-input label="Last Name" value={lastName}
+            required onchange={handleChange} data-field="lastName">
+          </lightning-input>
+        </div>
+      </div>
+
+      <!-- Row 2 -->
+      <div class="slds-grid slds-gutters slds-m-top_small">
+        <div class="slds-col slds-size_1-of-2">
+          <lightning-input label="Company" value={company}
+            required onchange={handleChange} data-field="company">
+          </lightning-input>
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+          <lightning-input type="email" label="Email" value={email}
+            required onchange={handleChange} data-field="email">
+          </lightning-input>
+        </div>
+      </div>
+
+      <!-- Row 3 — Phone with country code + Lead Source -->
+      <div class="slds-grid slds-gutters slds-m-top_small">
+
+        <!-- ✅ CHANGED: Phone field with country code dropdown -->
+        <div class="slds-col slds-size_1-of-2">
+          <div class="slds-form-element">
+            <label class="slds-form-element__label">Phone</label>
+            <div class="slds-form-element__control">
+              <div class="slds-grid" style="gap: 6px; align-items: flex-end;">
+
+                <!-- Country code dropdown -->
+                <div style="width: 148px; flex-shrink: 0;">
+                  <lightning-combobox
+                    name="countryCode"
+                    label=""
+                    value={countryCode}
+                    options={countryCodeOptions}
+                    onchange={handleCountryCodeChange}>
+                  </lightning-combobox>
+                </div>
+
+                <!-- Phone number input -->
+                <div class="slds-grow">
+                  <lightning-input
+                    type="tel"
+                    label=""
+                    value={phoneNumber}
+                    placeholder={phonePlaceholder}
+                    maxlength="15"
+                    onchange={handlePhoneChange}>
+                  </lightning-input>
+                </div>
+
+              </div>
+              <!-- Live full number preview -->
+              <template if:true={fullPhone}>
+                <p class="slds-text-body_small slds-m-top_xx-small"
+                   style="color: #3e3e3c;">
+                  &#128222; {fullPhone}
+                </p>
+              </template>
+            </div>
+          </div>
+        </div>
+        <!-- END CHANGED -->
+
+        <div class="slds-col slds-size_1-of-2">
+          <lightning-combobox label="Lead Source" value={leadSource}
+            options={sourceOptions}
+            onchange={handleChange} data-field="leadSource">
+          </lightning-combobox>
+        </div>
+
+      </div>
+
+      <!-- Product Interest -->
+      <lightning-combobox
+        class="slds-m-top_small"
+        label="Product Interest" value={productInterest}
+        options={productOptions}
+        onchange={handleChange} data-field="productInterest">
+      </lightning-combobox>
+
+      <!-- Save button -->
+      <div class="slds-m-top_medium">
+        <lightning-button
+          variant="brand" label="Save Lead"
+          disabled={isSaving}
+          onclick={saveLead}>
+        </lightning-button>
+        <template if:true={isSaving}>
+          <lightning-spinner
+            size="small" alternative-text="Saving"
+            class="slds-m-left_small">
+          </lightning-spinner>
+        </template>
+      </div>
+
+    </div>
+  </lightning-card>
+</template>

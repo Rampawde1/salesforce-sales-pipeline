@@ -1,0 +1,8 @@
+.sfdx/
+.sf/
+node_modules/
+*.dup
+.DS_Store
+Thumbs.db
+.vscode/settings.json
+.env
