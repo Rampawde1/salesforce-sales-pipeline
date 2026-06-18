@@ -1,18 +1,49 @@
-# Salesforce DX Project: Next Steps
+# 🚀 Salesforce Sales Pipeline System
+### Built by Creative Encode Technologies
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+A complete, automated Sales Cloud CRM system built on Salesforce Developer Edition.  
+Covers the full sales journey — from lead capture to revenue Dashboard.
 
-## How Do You Plan to Deploy Your Changes?
+---
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+## 📋 Project Overview
 
-## Configure Your Salesforce DX Project
+| Detail | Value |
+|--------|-------|
+| Platform | Salesforce Developer Edition (Sales Cloud) |
+| Modules | 4 end-to-end modules |
+| Build time | 15 Days  |
+| Tech stack | Apex, LWC, Flows, Reports, Collaborative Forecasts |
+| Web form | Hosted on GitHub Pages |
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+---
 
-## Read All About It
+## 🗂️ 5 Modules
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+### Module 1 — Lead Capture *(Hour 1–2)*
+- Auto-scores every lead 0–100 (Hot / Warm / Cold)
+- Round-robin assignment to Sales Reps via Apex
+- Auto-response acknowledgement email to customer
+- Web-to-Lead form hosted on GitHub Pages
+
+### Module 2 — Opportunity Stages *(Hour 2–3)*
+- 7-stage pipeline: Prospecting → Qualification → Needs Analysis → Proposal/Quote → Negotiation → Closed Won → Closed Lost
+- Kanban board view with drag-and-drop
+- Sales Path with key fields and coaching per stage
+- Validation rule prevents stage skipping
+- Stage change date stamped automatically
+
+### Module 3 — Task Reminders *(Hour 3–4)*
+- Record-Triggered Flow creates follow-up task on every stage change
+- Daily Apex Scheduled Job sends overdue task email digest at 8 AM
+- Custom Notification fires in-app bell + mobile push
+
+### Module 4 — Dashboard *(Hour 5–6)*
+- 4 live reports: Pipeline by Stage, Win Rate, Monthly Revenue, Activity Summary
+- Sales Command Centre dashboard with daily auto-refresh
+- Custom LWC Pipeline Summary Widget with live deal counts and ₹ values
+
+
+---
+
+## 📁 Project Structure
